@@ -7,7 +7,6 @@ intents.presences = False
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-# Define global game variables
 lobby = []
 games = {}
 players = ["player 1", "player 2", "bot"]
@@ -47,11 +46,10 @@ async def play(ctx, number: int):
     else:
         await ctx.send("No game in progress!")
 
-# Define the Game class to handle game logic
 class Game:
     def __init__(self, players):
         self.players = players
-        self.id = players[0].id  # Use a unique identifier for the game
+        self.id = players[0].id 
         self.n = 0
         self.turn = 0
 
@@ -60,8 +58,6 @@ class Game:
         await ctx.send("Game started!")
 
     async def play(self, ctx, number):
-        # Implement game logic here
         pass
 
-# Replace 'YOUR_TOKEN_HERE' with your actual bot token
 bot.run('YOUR_TOKEN_HERE')
